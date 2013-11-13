@@ -1,0 +1,9 @@
+<div class="row collapse">
+	<div class="nine columns">{{ field }}</div>
+	<div class="three columns">
+		<button class="button postfix" type="{{ button_type }}" id="id_{{ button_id|default:'button' }}">{{ button_text }}</button>
+	</div>
+	{% if field.errors %}
+	<div class="twelve columns break">{{ field.errors }}</div>
+	{% endif %}
+</div>

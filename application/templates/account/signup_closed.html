@@ -1,0 +1,10 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+
+{% block html-title %}{{ block.super }} {% trans "Registration Closed" %}{% endblock %}
+{% block page-title %}{% trans "Registration Closed" %}{% endblock %}
+{% block body-class %}account-page account-registration-closed{% endblock %}
+
+{% block page-content %}
+Registration is closed
+{% endblock %}

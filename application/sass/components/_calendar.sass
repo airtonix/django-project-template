@@ -1,0 +1,122 @@
+#calendar-name
+    font-weight: normal
+    font-size: 1.5em
+    font-family: $header-font-family
+    text-align: center
+    width: 100%
+    padding: 0.5em 1em
+    margin: 0 0 0.5em 0
+
+body.calendar
+
+    header
+        .button
+            padding: 0.5em 1em
+            &:hover
+                background: #eee
+                color: #333
+
+        #page-title
+            position: relative
+            border-bottom: 1px solid #EEE
+
+            > *
+                display: inline-block
+
+            #add-event
+                position: absolute
+                margin: 0
+                right: 1em
+                bottom: 0em
+                border-bottom: none
+                +border-corner-radius(bottom, left, 0)
+                +border-corner-radius(bottom, right, 0)
+
+            #date-selector
+                text-align: center
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                line-height: 0
+
+                ul
+                    display: inline-block
+                    li
+                        a, .button
+                            margin: 0
+                            border-bottom: none
+
+
+                        &:first-child
+                            .button
+                                +border-corner-radius(bottom, left, 0)
+
+                        &:last-child
+                            .button
+                                +border-corner-radius(bottom, right, 0)
+
+            .button
+                line-height: 1.45em
+
+
+    #selected-date
+        position: relative
+        bottom: 1em
+        font-size: 0.8em
+        color: #999
+
+    footer
+        border-top: 1px solid #EEE
+        padding: 7px 0
+        text-align: right
+
+
+    .content
+        padding: 7px 3px
+        position: relative
+        overflow: hidden
+
+        .message
+            text-align: center
+
+            &.info
+                color: #999
+
+    .new-event-page
+        +transition(margin-top, 0.3s)
+        +box-shadow(0 0 1px rgba(#000, 0.4), 0 0 5px rgba(#000, 0.2))
+        +border-radius(0 0 0.2em 0)
+        background: #fefefe
+
+        top: 0
+        left: 0
+        position: absolute
+        margin-top: -100%
+
+        overflow: hidden
+        padding: 0.5em
+        height: 21em
+        width: 30em
+
+        &.active
+            margin-top: 0
+
+        input[type=text]
+            display: block
+            margin: 7px 0
+            width: 100%
+
+        footer
+            margin-top: 7px
+
+    .event-list
+        overflow: auto
+        min-height: 30em
+        height: 30em
+
+        .event
+
+            .event-datetime
+                font-color: #999
+                font-size: 10px

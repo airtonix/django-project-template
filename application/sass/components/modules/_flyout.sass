@@ -1,0 +1,121 @@
+=coloured-flyout($bg: silver, $text: #333 )
+
+    $inverted: invert($bg)
+
+    $textLight: tint($text , 35%)
+    $textLighter: tint($text , 40%)
+    $textLightest: tint($text , 50%)
+    $textDark: shade($text , 35%)
+    $textDarker: shade($text , 40%)
+    $textDarkest: shade($text , 50%)
+
+    $bgLight: tint($bg , 5%)
+    $bgLighter: tint($bg , 10%)
+    $bgLightest: tint($bg , 10%)
+    $bgDark: shade($bg , 5%)
+    $bgDarker: shade($bg , 10%)
+    $bgDarkest: shade($bg , 15%)
+
+    $border: shade($bg , 10%)
+    $borderDark: shade($bg , 20%)
+    $borderDarker: shade($bg , 30%)
+
+    &:hover
+        > a
+            background: $bg
+            color: $text
+            z-index: 99999
+
+            &:first-child:after
+                border-color: $text transparent transparent transparent
+
+        .flyout, .dropdown
+            display: inline-table
+
+    .dropdown > li
+        background: none
+        > a
+            line-height: 1
+        &:last-child > a
+            padding-bottom: 1em
+
+    +respondTo(smallScreen)
+        .flyout, .dropdown
+            display: block
+
+    .flyout, .dropdown
+        background: $bg
+        border: 1px solid $border
+        border-top: none
+        +box-shadow(0 9px 0 -5px rgba(#000,0.1))
+        z-index: 999000
+
+        form input, form textarea, label, a
+            color: $text
+
+        a:hover
+            color: $textDarker
+            background: $bgDarker
+
+        form input, form textarea, form .button
+            border: 1px solid $borderDark
+
+        form .button
+            background: $bgDarker
+
+        a, label
+            line-height: 4rem
+
+
+    @if lightness($bg) < 50%
+        .flyout, .dropdown
+
+            h1,h2,h3,h4,h5
+                color: $textLightest
+                &.subheader
+                    color: $textLightest
+
+
+            .title.js-generated.back h5
+                border-bottom: 1px dotted $border
+                margin-bottom: 1em
+                background: $bgLight
+
+                a:after, a:before
+                    border-color: transparent rgba($textLight, 1) transparent transparent
+
+            form input, form textarea, label, a
+                color: $textLight
+
+            form .button, form button
+                color: $textDark
+
+    @else
+        .flyout, .dropdown
+
+            h1,h2,h3,h4,h5
+                color: $textDarkest
+                &.subheader
+                    color: $textDarkest
+
+
+            .title.js-generated.back h5
+                border-bottom: 1px dotted $border
+                margin-bottom: 1em
+                background: $bgDark
+
+                a:after, a:before
+                    border-color: transparent rgba($bgDark, 1) transparent transparent
+
+            form input, form textarea,label, a
+                color: $textDark
+            form .button, form button
+                color: $textLight
+
+
+
+.nav-bar, .top-bar
+    .has-flyout, .has-dropdown
+        .flyout, .dropdown
+            background: inherit
+            border: inherit

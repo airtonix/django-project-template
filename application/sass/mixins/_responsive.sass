@@ -1,0 +1,25 @@
+=respondTo($media)
+  @if $media == smallScreen
+    @media #{$small}
+      @content
+  @else if $media == mediumScreen
+    @media #{$medium}
+      @content
+  @else if $media == largeScreen
+    @media #{$large}
+      @content
+  @else if $media == landscape
+    @media #{$landscape}
+      @content
+  @else if $media == portrait
+    @media #{$portrait}
+      @content
+
+
+@each $size in small, medium, large, landscape, portrait
+  +respondTo(#{$size}Screen)
+    .hide-on-#{$size}
+      display: none !important
+    .text-centered-on-#{$size}
+      text-align: center
+

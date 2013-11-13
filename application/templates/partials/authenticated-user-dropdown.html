@@ -1,0 +1,9 @@
+{% load waffle_tags settings_tags i18n account_tags %}
+    <ul id="authenticated-user-dropdown" class="f-dropdown" data-dropdown-content>
+        <li class="first"><a href="{% url 'dashboard' %}"><em class="icon-cog"></em> {% trans 'Dashboard' %}</a></li>
+        <li><a href="{% url 'account_settings' %}"><em class="icon-cog"></em> {% trans 'Settings' %}</a></li>
+        {% if user.is_superuser %}
+        <li><a href="{% url 'admin:index' %}"><em class="icon-user-md"></em> {% trans 'Admin' %}</a></li>
+        {% endif %}
+        <li class="last"><a href="{% url 'account_logout' %}"><em class="icon-signout"></em> {% trans 'Logout' %}</a></li>
+    </ul>

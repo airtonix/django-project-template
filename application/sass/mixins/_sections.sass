@@ -1,0 +1,17 @@
+
+=section-color($color)
+    h1
+        color: tint($color, 20%)
+
+        & ~ p
+            color: tint($color, 20%)
+
+    .primary-button
+        background: shade($color, 20%)
+        &:hover
+            background: tint($color, 20%)
+
+
+=pastelised-section($color)
+    background: pastelise($color)
+    +section-color($color)

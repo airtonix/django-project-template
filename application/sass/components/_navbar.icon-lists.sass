@@ -1,0 +1,19 @@
+.nav-bar
+
+	li
+		position: relative
+
+		[class^="icon-"], [class*=" icon-"]
+			&.right
+				position: absolute
+				right: 1em
+	&.light li
+		[class^="icon-"], [class*=" icon-"]
+			color: #ccc
+
+		a:hover
+			[class^="icon-"], [class*=" icon-"]
+				color: #333
+		a:active
+			[class^="icon-"], [class*=" icon-"]
+				color: #ddd

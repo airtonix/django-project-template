@@ -1,0 +1,46 @@
+
+=links($color: $link-color, $visited: $link-visited-color, $active: $link-active-color, $hover: $link-hover-color, $underlineColor: $link-underline-color)
+    @content
+    color: $color
+
+    &:visited
+        color: $visited
+    &:active
+        color: $active
+    &:hover
+        color: $hover
+        border-bottom-color: transparent
+
+=edge-arrow($color: #333, $size: 1em, $align: right)
+    &:before
+        content: ""
+        // +box-shadow(0 -1px 0 $color)
+        border-color: transparent transparent $color transparent
+        border-width: $size
+        border-style: solid
+
+        width: $size*2
+        height: $size*2
+
+        position: absolute
+        top: -$size*2
+
+        @if $align == right
+            right: $size*2
+            // margin-left: $size/2
+
+        @if $align == center
+            left: 50%
+            margin-left: -$size/2
+
+        @if $align == left
+            left: $size*2
+            // margin-left: $size/2
+
+=placeholder
+    &::-webkit-input-placeholder
+        @content
+    &::-moz-placeholder
+        @content
+    &:-ms-input-placeholder
+        @content

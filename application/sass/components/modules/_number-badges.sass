@@ -1,0 +1,66 @@
+.badge
+	padding: 0.5em 0.8em
+	+border-radius(1em)
+	font-size: 80%
+	font-weight: bold
+	margin-top: -0.4em
+
+	&.has-tip
+		border-bottom: none
+
+	&.small, &.thin, &.tiny
+		margin-top: -0.1em
+		padding: 0.2em 0.8em
+
+	&.red
+		background-color: darken(red, 40%)
+		color: lighten(red, 40%)
+
+	&.blue
+		background-color: darken(blue, 40%)
+		color: lighten(blue, 40%)
+
+	&.yellow
+		background-color: darken(yellow, 40%)
+		color: lighten(yellow, 40%)
+
+	&.hollow
+		background: none
+		border: 0.1em solid #999
+		color: #666
+
+
+ul.badge-group
+	display: inline-block
+	width: auto
+	margin: 0
+	padding: 0
+
+	li
+		display: inline-block
+		float: left
+		width: auto
+		margin: 0
+		padding: 0
+		list-style: none
+
+		.badge
+			display: inline-block
+			+border-radius(0)
+			&.hollow
+				border-left: none
+
+	&.sqaure li .badge
+		+border-radius(0)
+
+	&.rounded li
+		&:first-child .badge
+			+border-top-left-radius(1em)
+			+border-bottom-left-radius(1em)
+			&.hollow
+				border-left: 0.1em solid #999
+
+		&:last-child .badge
+			+border-top-right-radius(1em)
+			+border-bottom-right-radius(1em)
+

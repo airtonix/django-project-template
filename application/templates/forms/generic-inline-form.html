@@ -1,0 +1,5 @@
+{% load form_tags debug_tags %}{% csrf_token %}
+{% for field in form %}
+    {{ field|add_placeholder|html_class:"centered" }}
+    {{ field.errors }}
+{% endfor %}

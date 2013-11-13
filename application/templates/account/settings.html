@@ -1,0 +1,17 @@
+{% extends "account/base-withsidebar.html" %}
+{% load url from future %}
+{% load i18n %}
+
+{% block html-title %}{{ block.super }} {% trans 'Settings' %}{% endblock %}
+{% block page-title %}{% trans 'Settings' %}{% endblock %}
+{% block body-class %}account-page account-settings{% endblock %}
+
+{% block page-content %}
+        <div class="large-8 columns large-centered">
+            <form method="POST" action="{% url 'account_settings' %}">
+                {% csrf_token %}
+                {% include "forms/generic-simple-form.html" %}
+                <button class="button" type="submit">Save</button>
+            </form>
+        </div>
+{% endblock %}

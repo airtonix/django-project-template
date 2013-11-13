@@ -1,0 +1,25 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load plan_tags %}
+
+{% block html-title %}{{ block.super }} {% trans "Plans and Pricing" %}{% endblock %}
+{% block page-title %}
+{% blocktrans %} Get started Now!
+    <small class="block">30 day trial, No credit card required.</small>{% endblocktrans %}
+{% endblock %}
+{% block body-class %}account-page account-registration account-plans-pricing{% endblock %}
+
+{% block page-content %}
+    <div class="large-12 columns">
+        {% url 'account_signup' as SignUpUrl %}
+        {% available_plans user with ActionButtonLabel="Sign up for<br>30 day Free Trial" ActionButtonUrl="#" ActionButtonAttrs="data-reveal-id='signup-modal'"%}
+    </div>
+
+<div id="signup-modal" class="reveal-modal small">
+    <form action="." method="post" data-modal>
+        {% include "forms/generic-inline-form.html" %}
+        <button class="button button-block" type="submit">{% trans "Create account" %}</button>
+    </form>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+{% endblock %}

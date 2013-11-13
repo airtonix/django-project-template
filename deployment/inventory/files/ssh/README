@@ -1,0 +1,8 @@
+1. create a private and public key
+
+    ssh-keygen -f ./key -t rsa -b 2048
+
+2. Generate the known host
+
+    ssh-keyscan -H bitbucket.org >> ./known_hosts
+

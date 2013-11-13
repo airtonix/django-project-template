@@ -1,0 +1,3 @@
+host bitbucket.org
+    user git
+    identityfile ~/.ssh/id_rsa

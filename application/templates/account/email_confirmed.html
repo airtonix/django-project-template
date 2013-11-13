@@ -1,0 +1,10 @@
+{% extends "account/base.html" %}
+{% load url from future %}
+{% load i18n %}
+
+{% block html-title %}{{ block.super }} {% trans "Email confirmed" %}{% endblock %}
+{% block page-title %}{% trans "Email confirmed" %}{% endblock %}
+
+{% block page-content %}
+    <p>{% blocktrans with email=confirmation.email_address.email %}You have confirmed <b>{{ email }}</b>{% endblocktrans %}</p>
+{% endblock %}

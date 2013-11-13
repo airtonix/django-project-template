@@ -1,0 +1,6 @@
+To simluate actual live deployment it is HIGHLY recomended that you 
+use vagrant.
+
+Examine the vagrant file,
+
+create more nodes for the required roles.

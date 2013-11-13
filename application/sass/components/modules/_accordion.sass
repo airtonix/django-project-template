@@ -1,0 +1,148 @@
+=accordion-base
+    margin: 0
+    padding: 0
+    display: block
+    +box-sizing(border-box)
+
+    .accordion-leaf
+        padding: 0
+        margin: 0
+
+        .accordion-title
+            margin: 0
+            padding: 0.5em
+
+        .accordion-content
+            margin: 0
+            padding: 0.5em
+            display: none
+
+        &.active
+            .accordion-content
+                display: block
+
+
+=accordion-style($radius: 0.3em, $border: 1px solid rgba(#000, 0.5) )
+    .accordion-leaf
+
+        .accordion-title
+            cursor: pointer
+            border-left: $border
+            border-right: $border
+
+        .accordion-content
+            border: $border
+
+        &:first-child
+
+            .accordion-title
+                border-top: $border
+                +border-corner-radius(top, left, $radius)
+                +border-corner-radius(top, right, $radius)
+
+            // &.active
+            //     .accordion-title
+            //         border-bottom: 1px solid $borderColor
+            //         +border-corner-radius(top, left, 0)
+            //         +border-corner-radius(top, right, 0)
+
+        &:last-child
+
+            .accordion-title
+                border-bottom: $border
+                +border-corner-radius(bottom, left, $radius)
+                +border-corner-radius(bottom, right, $radius)
+
+            .accordion-content
+                border-bottom: $border
+
+            &.active
+                .accordion-title
+                    border-bottom: none
+                    +border-corner-radius(bottom, left, 0)
+                    +border-corner-radius(bottom, right, 0)
+
+                .accordion-content
+                    border-bottom: $border
+                    +border-corner-radius(bottom, left, $radius)
+                    +border-corner-radius(bottom, right, $radius)
+
+
+
+// =accordion($borderColor:none, $bgColor: #333, $fgColor: #fff)
+//  .accordion
+//      display: block
+//      clear: both
+//      border-bottom: none
+//      border: 1px solid $borderColor
+//      +border-radius(0)
+
+//      &.no-arrow
+//          > li .title:after
+//              content: none
+//              display: none
+
+
+//      > li
+//          border: none
+//          background: $bgColor
+//          border-bottom: 1px solid $borderColor
+//          +box-shadow(none)
+//          outline: none
+
+//          &:last-child
+//              border-bottom: none
+
+//          .title
+//              min-height: 3em
+//              line-height: 3em
+//              padding: 0 20px
+//              overflow: hidden
+//              border-right: none
+//              border-left: none
+//              background: none
+
+//              +fontawesome
+//              +icon-chevron-right
+//              +icon-float(right)
+//              +icon-color($borderColor)
+
+//              &:after
+//                  border: none
+
+//              &.active
+//                  border-top-color: $borderColor
+//                  .title
+//                      padding: 0
+
+//          &:hover, &.active
+//              .title
+//                  +icon-chevron-down
+//                  +icon-color($fgColor)
+
+
+
+//          .content
+//              // padding: 0.5em
+//              padding-left: 11em
+
+
+//          +respondTo(smallScreen)
+//              .title
+
+//                  .thumb
+//                      width: 8.33333% !important
+//                      min-width: 5em
+//                      float: left
+//                      margin: 0
+//                      padding: 0
+
+//                  .name
+//                      width: 66.33333% !important
+//                      float: left
+
+//              .content
+//                  padding: 0.5em
+
+//  @content
+

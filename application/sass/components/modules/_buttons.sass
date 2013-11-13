@@ -1,0 +1,298 @@
+
+=separated-icon-button($color, $hover)
+    position: relative
+    [class^="icon-"],
+    [class*=" icon-"]
+        &:after
+            content: ""
+            position: absolute
+            top: 0.4em
+            bottom: 0.4em
+
+    &.left-icon
+        [class^="icon-"],
+        [class*=" icon-"]
+            margin-right: 1em
+            &:after
+                padding-right: 0.6em
+                box-shadow: 2px 0px 0px -1px $color
+        &:hover
+            [class^="icon-"],
+            [class*=" icon-"]
+                &:after
+                    box-shadow: 2px 0px 0px -1px $hover
+
+    &.right-icon
+        [class^="icon-"],
+        [class*=" icon-"]
+            margin-left: 1em
+            &:after
+                padding-left: 0.6em
+                box-shadow: -2px 0px 0px -1px $color
+        &:hover
+            [class^="icon-"],
+            [class*=" icon-"]
+                &:after
+                    box-shadow: -2px 0px 0px -1px $hover
+
+=simple-outline-button-states
+    &.success
+        +simple-outline-button($success-color, shade($success-color, 35%))
+    &.alert
+        +simple-outline-button($alert-color, shade($alert-color, 35%))
+    &.warning
+        +simple-outline-button($warning-color, shade($warning-color, 35%))
+    &.secondary
+        +simple-outline-button($secondary-color, shade($secondary-color, 35%))
+
+    &.primary
+        $hover-color: shade($primary-color, 35%)
+        +simple-outline-button($primary-color, $hover-color)
+
+    &.white
+        +simple-outline-button(white, #333)
+
+=simple-outline-button($normal, $hover)
+    +box-shadow(none)
+    text-shadow: none
+    border: 2px solid $normal
+    color: $normal
+
+    .label
+        background: $normal
+        @if lightness($normal) < 75%
+            color: tint($normal, 95%)
+        @else
+            color: shade($normal, 85%)
+
+        +border-radius($global-radius)
+
+    &.muted
+        color: rgba($normal, 0.3)
+        border-color: rgba($normal, 0.3)
+
+    &:hover
+        color: $hover
+        border: 2px solid $hover
+
+
+.title-button
+    text-align: left
+    font-family: $subheader-font-family
+    color: rgba(#fff, 0.7)
+    text-shadow: 0 -1px 0 rgba(#000, 0.2)
+    .title
+        display: block
+        width: 100%
+        color: #fff
+        font-family: $header-font-family
+        font-size: 1.2em
+
+
+.button
+    +box-shadow(0 -2px 0 rgba(#000, 0.2) inset)
+    +border-radius($global-radius)
+    text-shadow: 0 -1px rgba(#000, 0.1)
+    border: none
+    $border-colour: rgba(#000, 0.2)
+
+    &.transparent,
+    &.transparent:hover
+        background: none
+
+    &.no-border
+        border: none
+        +box-shadow(none)
+
+    &.white-text
+        color: white
+
+    &.simple-outline
+        +simple-outline-button(#999, shade(#999, 45%))
+        +simple-outline-button-states
+
+    &.button-block
+        width: 100%
+        display: block
+
+    &.simple
+
+        +box-shadow(none) //0 0 0 1px rgba(#000, 0.2))
+        border: 1px solid $border-colour
+        text-shadow: none
+
+        &.split span
+            border-left-color: $border-colour
+            &:before
+                color: $border-colour !important
+
+        &.white
+            color: #999
+            background: #fff
+            border-color: #fff
+
+        &.grey
+            color: #fff
+            background: #999
+            border-color: #999
+
+    &.prefix
+        +border-corner-radius(top, left, 0)
+        +border-corner-radius(bottom, left, 0)
+    &.postfix
+        +border-corner-radius(top, right, 0)
+        +border-corner-radius(bottom, right, 0)
+
+    &.split
+        [class^="icon-"],
+        [class*=" icon-"]
+            +icon-FontAwesome
+
+    &.revealable
+        border-color: transparent
+        &:hover
+            border-color: #ccc
+
+    &.hanging-top
+        border-top: none
+        +border-corner-radius(top, right, 0)
+        +border-corner-radius(top, left, 0)
+
+    &.hanging-bottom
+        border-bottom: none
+        +border-corner-radius(bottom, right, 0)
+        +border-corner-radius(bottom, left, 0)
+
+    &.hanging-left
+        border-left: none
+        +border-corner-radius(bottom, left, 0)
+        +border-corner-radius(top, left, 0)
+
+    &.hanging-bottom
+        border-right: none
+        +border-corner-radius(bottom, right, 0)
+        +border-corner-radius(top, right, 0)
+
+    &.separated-icon
+        +separated-icon-button(#0cf, shade(#0cf, 15%))
+
+
+=vertical-button-group
+    line-height: 0
+
+    li
+        width: 100%
+        display: inline-block
+        float: none
+        margin: 0
+        padding: 0
+        line-height: 0
+
+        .button
+            +border-radius(0)
+            margin: 0
+            width: 100%
+            display: inline-block
+            // move buttons so edge borders overlap
+            // means we don't have to turn borders off
+            // which means we don't care what
+            // colour the border is
+            margin-top: -2px
+
+            .label
+                position: absolute
+                &.right
+                    right: 1em
+
+        &:first-child .button
+            +border-corner-radius(top, left, $global-radius)
+            +border-corner-radius(top, right, $global-radius)
+
+        &:last-child .button
+            +border-corner-radius(bottom, left, $global-radius)
+            +border-corner-radius(bottom, right, $global-radius)
+
+        &:hover .button
+            /* ensure all the border appear */
+            z-index: 10
+
+=horizontal-button-group
+    display: inline-block
+
+    li
+        width: auto
+        float: left
+
+        .button
+            width: auto
+            +border-radius(0)
+            margin-left: -2px
+
+            [class^="icon-"],
+            [class*=" icon-"]
+                line-height: 1.2
+
+        &:first-child .button
+            +border-corner-radius(top, left, $global-radius)
+            +border-corner-radius(bottom, left, $global-radius)
+
+        &:last-child .button
+            +border-corner-radius(top, right, $global-radius)
+            +border-corner-radius(bottom, right, $global-radius)
+
+
+.button-group
+    +vertical-button-group
+
+    &.horizontal
+        +horizontal-button-group
+
+
+    &.simple-outline
+
+        .button
+            +simple-outline-button(#ddd, shade(#ddd, 45%))
+            +simple-outline-button-states
+
+        &.success .button
+            +simple-outline-button($success-color, shade($success-color, 35%))
+        &.alert .button
+            +simple-outline-button($alert-color, shade($alert-color, 35%))
+        &.secondary .button
+            +simple-outline-button($secondary-color, shade($secondary-color, 35%))
+        &.primary .button
+            $hover-color: shade($primary-color, 35%)
+            +simple-outline-button($primary-color, $hover-color)
+
+    &.transparent
+        .button
+            background: none
+
+    +respondTo(smallScreen)
+
+        +horizontal-button-group
+
+        &.vertical
+            +vertical-button-group
+
+
+
+.button-block
+    width: 100%
+    display: block
+
+    &.button-group
+        display: table
+        > *
+            display: table-cell
+
+h1,h2,h3,h4,h5,h6
+    .button.transparent
+        &.right
+            border-top: none
+            border-right: none
+            border-bottom: none
+        &.left
+            border-top: none
+            border-left: none
+            border-bottom: none

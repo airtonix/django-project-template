@@ -1,0 +1,10 @@
+{% load i18n %}
+{% blocktrans %}
+You recently registered this email address on our website.
+
+Please click on the following link as confirmation:
+
+{{ activate_url }}
+
+Cheers!
+{% endblocktrans %}

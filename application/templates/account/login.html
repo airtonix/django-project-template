@@ -1,0 +1,30 @@
+{% extends "flatpages/default.html" %}
+{% load i18n %}
+{% load future %}
+{% load waffle_tags %}
+{% load form_tags %}
+
+{% block html-title %}{{ block.super }} {% trans "Login" %}{% endblock %}
+{% block page-title %}{% trans "Login" %}{% endblock %}
+{% block body-class %}account-page login-page{% endblock %}
+
+{% block page-content %}
+    <div class="large-6 columns large-centered centered">
+        <form action="." method="post" class="{{ form.errors|yesno:"errors," }}">
+            {% include "forms/error-list.html" %}
+            {% include "forms/generic-inline-form.html" %}
+            <input type="hidden" name="{{redirect_field_name}}" value="{{redirect_field_value}}">
+            <button class="button button-block" type="submit">{% trans "Login" %}</button>
+        </form>
+        <ul class="button-group vertical simple-outline transparent">
+            {% switch 'global-private-beta' %}
+            <li><a class="button" href="{% url 'waitinglist_list_signup' %}"><em class="icon-heart left"></em> {% trans 'Request Invite' %}</a></li>
+            {% else %}
+            <li><a class="button" href="{% url 'account_signup' %}">
+                {% trans "No account? Register here." %} <em class="icon-pencil right"></em></a></li>
+            {% endswitch %}
+            <li><a class="button" href="{% url 'account_password_reset' %}">
+                {% trans "Reset your password" %} <em class="icon-shield right"></em></a></li>
+        </ul>
+    </div>
+{% endblock %}

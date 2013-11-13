@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load render_template %}
+
+{% block html-title %}{{ block.super }} {{ Page.title }}{% endblock %}
+
+{% block canonical_url %}{{ Page.url }}{% endblock %}
+{% block body-class %}normal-page {{ PageSlug }}{% endblock %}
+
+{% block content %}
+    <article id="{{ Page.slug }}" data-topscroll-container data-topscroll-align="right">
+        {% block header %}
+        <header id="page-title" class="row">
+            <h2 class="title">{% block page-title %}{{ Page.title }}{% endblock %}</h2>
+            {% block page-header %}{% endblock %}
+        </header>
+        {% endblock %}
+
+        {% if Page.content %}
+            {% render_as_template Page.content %}
+        {% else %}
+            <div class="row">
+                {% block page-content %}{% endblock %}
+            </div>
+        {% endif %}
+
+    </article>
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+  "name": "Scout",
+  "homepage": "https://github.com/benplum/Scout",
+  "version": "0.1.0",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "dc371167798611aa907ea18b8a286496cceda43d"
+  },
+  "_source": "https://github.com/benplum/Scout.git",
+  "_target": "~0.1.0",
+  "_originalSource": "https://github.com/benplum/Scout.git",
+  "_direct": true
+}

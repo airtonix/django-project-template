@@ -1,0 +1,8 @@
+/* Foundation was made by ZURB, an interaction design and design strategy firm in Campbell, CA */
+/* zurb.com */
+/* humanstxt.org */
+
+/* SITE */
+  Standards: HTML5, CSS3, Python PEP8
+  Components: jQuery, Orbit, Reveal, Zurb Foundation 3.0, Django 1.4
+  Software: Sublime Text 2, Git, Python 2.7, Inkscape, Gimp, Ubuntu Gnome 3.6 Remix, Gnome-Terminal, Google Chrome

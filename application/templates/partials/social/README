@@ -1,0 +1,75 @@
+    meta-article-bas
+
+    meta-article-full.html
+
+        This is the monster! In addition to all the data contained in the standard template, the full template contains:
+
+        - Google Authorship and Publisher Markup. Although this data doesn't change your content appearance in Google+, it potentially add links to your Google+ pages in search results.
+        - Schema.org article markup
+        - Twitter Summary card with large image
+        - Expanded Open Graph article data
+
+
+    meta-product.html
+
+        The Product Template
+
+        For merchants, product markup is very popular, and usually easy for developers to implement in their shopping cart software. The product template differs from article markup in only a few ways:
+
+        - Modified <html> tag to reflect schema.org product data
+        - Twitter Product Card includes required data labels
+        - Open Graph data includes price and currency data
+
+
+Tools for testing and approval
+==============================
+
+A. Twitter Validation Tool
+
+    https://dev.twitter.com/docs/cards/validation/validator
+
+    Before your cards show on Twitter, you must first have your domain approved. Fortunately, it's a super-easy process. After you implement your cards, simply enter your sample URL into the validation tool. After checking your markup, select the "Submit for Approval" button.
+
+B. Facebook Debugger
+
+    https://developers.facebook.com/tools/debug
+
+    You don't need prior approval for your meta information to show on Facebook, but the debugging tool they offer gives you a wealth of information about all your tags and can also analyze your Twitter tags.
+
+
+C. Google Structured Data Testing Tool
+
+    http://www.google.com/webmasters/tools/richsnippets
+
+    Webmasters traditionally use the structured data testing tool to test authorship markup and preview how snippets will appear in search results, but you can also use see what other types of meta data Google is able to extract from each page.
+
+D. Pinterest Rich Pins Validator
+
+    http://developers.pinterest.com/rich_pins/validator/
+
+    Like Twitter, Pinterest requires an approval process to enable Rich Pin functionality. Use the Rich Pin Validator tool to test your data markup and apply for approval at the same time.
+
+
+Tips and best practices
+=======================
+
+Optimizing for images
+
+    The image you link to in your social data does not actually have to be on the page, but it should represent your content well. The image allows you to controll what people see when they share your content, so it's important to use quality images.
+
+    Every social platform has different standards for sizing. Typically, it's easier to keep it simple and choose one image size that will work for all services.
+
+    - Twitter thumbnail: 120x120px
+    - Twitter large image: 280x150px
+    - Facebook: Standards vary, but an image at least 200x200px works best. Facebook recommends large images up to 1200px wide.
+
+    In short, larger images offer you the most flexibility. When in doubt, test each page using the appropriate tool below to see exactly how your images will appear in snippits.
+
+The importance of Open Graph data
+
+    If you could choose only one type of meta data to include, your best bet is Open Graph. That's because all the platforms can use it as a fallback, including Twitter to a large degree.
+
+Facebook page insights
+
+    The meta property "fb:admins" requires that you enter your numeric Facebook id number, and gives you access to analytics about how your website content is shared on Facebook. Read more about Page Insights, including how to set it up and discover your numeric id.
+

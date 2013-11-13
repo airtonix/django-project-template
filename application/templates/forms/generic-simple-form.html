@@ -1,0 +1,13 @@
+{% load form_tags %}{% csrf_token %}
+{% for field in form %}
+<div class="row divided {{ field|field_type }} {{ field.errors|yesno:'error,' }}">
+    <div class="large-6 columns aligned-right">
+        <label for="{{field.id_for_label}}">{{ field.label }}
+        <small class="help help-text">{{ field.help_text}}</small>
+        </label>
+    </div>
+    <div class="large-6 columns field-input">{{ field }}
+        {% if field.errors %}<span>{{ field.errors }}</span>{% endif %}
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,241 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import compass/css3
+@import components/fontawesome/font-awesome
+
+
+@mixin breakpoint($point)
+    @if $point == large
+        @media (max-width: 1600px)
+            @content
+
+    @else if $point == medium
+        @media (max-width: 1250px)
+            @content
+
+    @else if $point == small
+        @media (max-width: 850px)
+            @content
+
+
+$bg: #595f65
+$fg: tint($bg, 80%)
+$bar: #464B50
+
+$itembg: #464b50
+$itemborder: #464b50
+
+$itembg_hover: tint($itembg, 20%)
+$itemborder_hover: tint($itemborder, 20%)
+
+$itembg_active: #50839e
+$itemborder_active: tint(#464b50, 20%)
+
+$itemcount: tint($itembg, 40%)
+$itemcount_bg: tint($itembg, 40%)
+$itemcount_border: #464b50
+
+$itemcount_hover: tint($itemcount, 50%)
+$itemcount_bghover: tint($itemcount_bg, 50%)
+$itemcount_borderhover: tint($itemcount_border, 50%)
+
+$itemcountnew_border: #bd617f
+$itemcountnew_bg: #940f3a
+$itemcountnew_borderhover: tint($itemcountnew_border, 50%)
+$itemcountnew_bghover: tint($itemcountnew_bg, 50%)
+
+#header
+    padding: 0
+    height: auto
+
+    #branding
+        display: inline-block
+
+    #user-links
+        font-size: 11px
+        position: absolute
+        right: 0
+        text-align: right
+        top: 0
+        margin: 0
+        padding: 0
+
+        li
+            margin: 0
+            list-style: none
+            display: inline-block
+            float: left
+
+            a.button
+                height: 2em
+                display: block
+                padding: 10px !important
+                background-image: none !important
+                background: none !important
+                border: none !important
+                color: tint($bar, 80%) !important
+                text-shadow: 0 -1px shade($bar, 50%)
+                +border-radius(0)
+                +box-shadow(2px 0px 0 -1px tint($bar, 30%), -1px 0px 0 0px shade($bar, 30%) !important)
+
+                &:hover
+                    background: rgba(tint($bar, 40%), 0.2) !important
+                    color: #fff !important
+
+
+            &:first-child a.button
+                +box-shadow(2px 0px 0 -1px tint($bar, 30%), -1px 0px 0 0px shade($bar, 30%), -2px 0px 0 0px tint($bar, 30%)  !important)
+
+        &+.menu-toggle
+            display: block
+
+        +breakpoint(small)
+            &+.menu-toggle
+                display: block
+
+
+.admin_shortcuts
+    background: $bg
+
+
+.admin-shortcuts
+    +box-shadow(0 -1px 0 tint($bar, 20%), 0 -2px 0 shade($bar, 30%))
+
+    display: inline-block
+    padding: 1em
+    width: 100%
+    margin: 0
+
+    background: $bg
+    color: $fg
+    padding: 0
+    margin: 0
+    list-style: none
+
+    .group
+        display: inline-block
+        padding: 0.5em
+        float: left
+        list-style: none
+
+        .header
+            font-size: 1.5em
+            color: #fff
+
+        .items
+            display: inline-block
+
+            &:after
+                content: "."
+                display: block
+                clear: both
+                visibility: hidden
+                line-height: 0
+                height: 0
+
+            li
+                display: inline-block
+                list-style: none
+                margin: 0
+                padding: 0
+
+                a
+                    padding: 20px 0px 20px 55px
+                    margin: 5px 10px 5px 0
+                    display: block
+                    float: left
+                    color: #fff
+                    border: 1px solid $itemborder
+                    background: $itembg 10px 50% no-repeat
+                    font-size: 14px
+                    line-height: 14px
+                    border-radius: 3px
+                    box-shadow: 1px 1px 3px rgba(0,0,0,0.1)
+                    position: relative
+                    min-height: 14px
+                    text-decoration: none
+                    position: relative
+
+                    [class*=icon]
+                        position: absolute
+                        left: 1em
+                        font-size: 1.2em
+                        line-height: 1.2em
+
+                    &:active
+                        background-color: $itembg_active
+                        border-color: $itemborder_active
+
+                    &:hover, &:focus
+                        background-color: $itembg_hover
+                        border-color: $itemborder_hover
+
+                        .count
+                            color: $itemcount_bghover
+                        .count_new
+                            background: $itemcountnew_bghover
+
+                    .title
+                        text-shadow: 0 0 1px rgba(0,0,0,0.5)
+                        padding-right: 25px
+
+                    .count
+                        position: absolute
+                        right: 3px
+                        top: 2px
+                        color: $itemcount
+                        font-size: 9px
+
+                    .count_new
+                        position: absolute
+                        right: -7px
+                        top: -7px
+                        color: #fff
+                        font-size: 10px
+                        line-height: 10px
+                        border-radius: 30px
+                        display: block
+                        overflow: hidden
+                        max-width: 40px
+                        min-width: 10px
+                        height: 10px
+                        padding: 6px
+                        border: 2px solid $itemcountnew_border
+                        background: $itemcountnew_bg
+                        text-align: center
+                        font-weight: bold
+                        box-shadow: 0 0 3px rgba(0,0,0,0.2)
+
+
+#toggle_app_list
+    display: inline-block
+    width: 100%
+    background: $bar
+    padding: 0.5em 0
+    text-align: center
+    +box-shadow(0 -1px 0 tint($bar, 20%), 0 -2px 0 shade($bar, 30%))
+    +background-image(linear-gradient(tint($bar, 10%), shade($bar, 10%)))
+    color: tint($bar, 70%)
+    text-decoration: none
+
+    .open, .closed
+        text-decoration: none
+        padding: 0.4em
+        font-size: 1.3em
+        // border: 1px solid tint(#ace, 20%)
+        text-shadow: 0 1px #fff
+
+    .open
+        display: inline-block
+
+    .closed
+        display: none
+
+    &.open
+        .open
+            display: none
+        .closed
+            display: inline-block

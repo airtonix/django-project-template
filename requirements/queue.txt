@@ -1,0 +1,4 @@
+django-celery-clearcache==0.1
+django-celery-email-with-retry==1.0.3
+django-celery-with-redis==3.0
+django-celery==3.0.23

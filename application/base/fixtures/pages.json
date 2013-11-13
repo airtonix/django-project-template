@@ -1,0 +1,37 @@
+[
+{
+    "pk": 1,
+    "model": "flatpages.flatpage",
+    "fields": {
+        "registration_required": false,
+        "title": "Home",
+        "url": "/",
+        "sites": [
+            1
+        ],
+        "content": "",
+        "enable_comments": false
+    }
+},
+{
+    "pk": 1,
+    "model": "base.extendedflatpage",
+    "fields": {
+        "status": 1,
+        "mptt_left": 1,
+        "_order": 0,
+        "mptt_right": 1,
+        "parent": null,
+        "activate_date": null,
+        "created": "2013-10-14T12:39:28.622Z",
+        "modified": "2013-10-14T12:39:29.776Z",
+        "sites": [
+            1
+        ],
+        "tree_id": 1,
+        "deactivate_date": null,
+        "slug": "home",
+        "mptt_level": 0
+    }
+}
+]

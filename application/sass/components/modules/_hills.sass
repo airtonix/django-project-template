@@ -1,0 +1,27 @@
+=hills($color: #ccc)
+	position: relative
+	width: 100%
+	height: 100%
+
+	.hill
+		position: absolute
+		left: 50%
+		width: 16em
+		height: 16em
+		margin-left: -8em
+		top: -4em
+		+transform(rotate(45deg))
+		+border-corner-radius(top, left, 5em)
+		+background-image(radial-gradient(top left, shade($color, 10%) 0%, $color 60%))
+		&:before
+			background: $color
+			display: block
+			content: ""
+			width: 105%
+			height: 105%
+			+border-corner-radius(top, left, 5em)
+			+transform(perspective(10em) rotateY(-1deg) rotateX(1deg))
+
+	.grass-tufts
+		display: none
+

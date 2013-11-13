@@ -1,0 +1,44 @@
+---
+project:
+  name: PROJECTNAME
+  user: PROJECTUSERNAME
+  group: www-data
+  mode: live
+  root: /opt/${project.name}/
+  virtualenv: ${project.root}/environ
+
+repo:
+  branch: BRANCH/COMMIT/TAG
+  url: REPOURL
+
+nginx:
+  servernames:
+    - "*.HOSTNAME"
+    - "HOSTNAME"
+
+django:
+  settings: base.settings.live
+  wsgi: base.wsgi
+  root: ${project.root}/code/application
+  fixtures:
+    - ${project.mode}
+    - pages
+
+database:
+  user: DBUSERNAME
+  name: DBNAME
+  password: DBPASSWORD
+  host: localhost
+  port: 5432
+
+# comment these out if you won't use a message queue server
+message_queue:
+  redis_port: 6379
+  redis_id: 2
+
+# comment these out if you won't use a cache server
+cache:
+  redis_port: 6379
+  redis_id: 1
+
+

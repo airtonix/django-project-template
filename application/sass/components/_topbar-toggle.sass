@@ -1,0 +1,43 @@
+
+#site-nav
+    .toggle-topbar.menu-icon
+        a
+            width: 48px
+            height: 48px
+            span
+                position: static
+                right: initial
+                margin: 0 auto
+
+    &.expanded
+        background: #111
+        .toggle-topbar.menu-icon
+            a
+                padding: 0.7em
+                background: $topbar-bg
+
+        .top-bar-section
+            margin: 0 0.5em
+            top: -0.3em
+            background: #111
+
+            ul
+                background: $topbar-bg
+                margin-bottom: 1em
+                .divider
+                    display: none
+
+                li
+                    background: none
+                a
+                    background: none
+                    color: #fff
+                    padding: 1em 2em
+
+                    [class^="icon-"],
+                    [class*=" icon-"]
+                        display: initial
+
+                a:hover
+                    background: tint($topbar-bg, 10%)
+                    color: #fff

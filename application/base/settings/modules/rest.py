@@ -1,0 +1,2 @@
+TASTYPIE_SWAGGER_API_MODULE = 'base.urls.api.api'
+APPEND_SLASH = True

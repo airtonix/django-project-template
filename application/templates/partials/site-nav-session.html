@@ -1,0 +1,24 @@
+{% load waffle_tags settings_tags i18n account_tags %}
+
+{% if not user.is_authenticated %}
+    <li class="first"><a href="{% url 'account_login' %}"><em class="icon-lock"></em> {% trans 'Login' %}</a></li>
+
+{% switch 'global-private-beta' %}
+    <li class="last"><a href="{% url 'waitinglist_list_signup' %}"><em class="icon-user"></em> {% trans 'Request Invite' %}</a></li>
+{% else %}
+    <li class="last"><a href="{% url 'account_signup' %}"><em class="icon-user"></em> {% trans 'Register' %}</a></li>
+{% endswitch %}
+
+{% else %}
+{% comment %}
+<li class="first has-dropdown">
+    <a href="#" title="Help Center" data-dropdown="help-dropdown" data-options="is_hover:true"><em class="icon-info-sign"></em> {% trans "Help" %}</a>
+        {% include 'partials/menu-help.html' %}</li>
+    {% endcomment %}
+<li class="divider show-for-medium-and-up"></li>
+<li class="last has-dropdown">
+    <a href="#" data-dropdown="authenticated-user-dropdown" data-options="is_hover:true">
+        <em class="icon-user"></em> {% user_display user %}</a>
+    {% include "account/partials/authenticated-user-dropdown.html" %}
+</li>
+{% endif %}

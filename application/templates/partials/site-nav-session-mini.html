@@ -1,0 +1,15 @@
+{% load waffle_tags i18n %}
+<nav id="session">
+    <ul class="button-group simple-outline transparent">
+        {% if not user.is_authenticated %}
+        <li><a href="{% url 'account_login' %}" class="button muted"><em class="icon-chevron-right"></em></a></li>
+        {% else %}
+        <li class="has-dropdown">
+            <a href="#" class="button muted" data-dropdown="authenticated-user-dropdown" data-options="is_hover:true">
+                <em class="icon-ellipsis-vertical"></em></a>
+            {% include "account/partials/authenticated-user-dropdown.html" %}
+
+        </li>
+        {% endif %}
+    </ul>
+</nav>

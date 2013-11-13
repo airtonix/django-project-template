@@ -1,0 +1,48 @@
+
+
+=centered-page()
+  #page-header
+    text-align: center
+    font-size: 200%
+
+    h1,h2,h3,h4
+      font-size: 200%
+
+  #site-wrapper
+    display: table
+    width: 100%
+    height: 100%
+
+  #content-wrapper
+    display: table-cell
+    vertical-align: middle
+
+
+
+=centered-title-page($color: silver)
+  +centered-page
+  +background-image( radial-gradient(center center, lighten($color, 15%) 0%, darken($color, 15%) 100%) )
+
+  #page-header
+    text-shadow: 0 1px rgba(#fff, 0.75)
+
+    h1,h2,h3,h4
+      color: darken($color, 30%)
+
+  #content-wrapper .button
+    border-color: darken($color, 45%)
+    background: darken($color, 35%)
+
+  .subheader
+    color: darken($color, 30%)
+
+  #site-footer > .inner
+    border-top-color: darken($color, 15%)
+    background-color: darken($color, 25%)
+    box-shadow: inset 0 5px 5px rgba(0,0,0,0.3)
+
+    .link-list
+      a
+        color: lighten($color, 15%)
+        background: darken($color, 15%)
+        border-bottom: none

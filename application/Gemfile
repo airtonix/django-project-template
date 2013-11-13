@@ -1,0 +1,4 @@
+source :rubygems
+gem 'compass', '= 0.12.2'
+gem 'ceaser-easing', '= 0.7'
+gem 'zurb-foundation', '= 4.3.2'

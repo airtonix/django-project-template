@@ -1,0 +1,74 @@
+{% load static page_tags compress googletools form_tags future i18n %}{% get_static_prefix as STATIC_PREFIX %}<!DOCTYPE html>
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en" manifest="{% url 'cache_manifest' %}"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" data-modal-container> <!--<![endif]-->
+    <head>
+        <title>{{ Site.name }} {% block html-title %}/ {% endblock %}</title>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+
+        <meta name="fragment" content="!" />
+
+        {% block head-meta %}
+        <meta name="description" content="{% block head_meta %}{% endblock %}">
+        <meta name="keywords" content="{% block head_keywords %}{% endblock %}">
+        <meta name="author" content="{% block head_author %}{% endblock %}">
+        {% endblock %}
+        {% site_verification_code %}
+        {% analytics_code %}
+
+        {% include "snippets/chrome-frame.html" %}
+        {% block stylesheets %}
+        {% compress css %}
+        <link media="screen, projector, print" rel="stylesheet" type="text/css" href="{% static 'stylesheets/screen.css' %}" >
+        {% endcompress %}
+        <link media="print" rel="stylesheet" type="text/css" href="{% static 'stylesheets/print.css' %}" >
+        <!--[if IE]>
+            <link href="{{ STATIC_PREFIX }}/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+        <![endif]-->
+        {% endblock %}
+        <script src="{{ STATIC_PREFIX }}javascripts/vendor/custom.modernizr.js"></script>
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body id="{% block body-id %}{% endblock %}" data-ng-class="BodyClass" class="{% block body-class %}{% endblock %}">
+        <div id="site-wrapper" class="obscured-by-modal">
+            <div id="messages">{% block messages %}{% include "partials/messages.html" %}{% endblock %}</div>
+            {% block site-nav %}
+            <nav id="site-nav" class="contain-to-grid top-bar home-border">
+                {% include "partials/site-nav-brand.html" %}
+                <section class="top-bar-section">
+                    <ul class="left">
+                        <li class="divider show-for-medium-and-up"></li>
+                        {% block site-menu %}{% page_menu page-slug='home' %}{% endblock %}
+                    </ul>
+                    <ul class="right">
+                        {% include "partials/site-nav-session.html" %}
+                    </ul>
+                </section>
+            </nav>
+            {% endblock %}
+
+            <div id="content-wrapper" data-alert-anchor>
+                {% block content %}{% endblock %}
+            </div>
+
+            {% block site-footer %}
+            {% include "partials/site-footer.html" %}
+            {% endblock %}
+
+        </div>
+        <div class="modal-background"></div>
+
+        {% block scripts %}
+        <script type="text/javascript"
+                data-main="{{ STATIC_PREFIX }}javascripts/main.js"
+                src="{{ STATIC_PREFIX }}javascripts/vendor/require.js"></script>
+        {% endblock %}
+    </body>
+</html>

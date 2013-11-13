@@ -1,0 +1,15 @@
+{% extends "account/base.html" %}
+{% load url from future %}
+{% load i18n %}
+
+{% block html-title %}{{ block.super }} {% trans "Confirm your email address" %}{% endblock %}
+{% block page-title %}{% trans "Check your email" %}{% endblock %}
+{% block body-class %}{{ block.super }} page-title-centered{% endblock %}
+
+{% block page-content %}
+<div class="large-8 large-centered text-centered columns">
+    {% blocktrans %}<h3>We have sent you an email to <b>{{ email }}</b> for verification. <small class="block">Read the email and follow the instructions to finalize the signup process</small></h3>
+    <p>If you do not receive it within a few minutes, contact us at <a href="mailto:{{ THEME_ACCOUNT_CONTACT_EMAIL }}">{{ THEME_ACCOUNT_CONTACT_EMAIL }}</a>.</p>{% endblocktrans %}
+    <p><a href="{{ success_url }}" class="button simple-outline transparent danger"><em class="icon-chevron-left"></em> {% trans "Go back" %}</a></p>
+</div>
+{% endblock %}

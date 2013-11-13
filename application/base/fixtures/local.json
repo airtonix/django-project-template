@@ -1,0 +1,44 @@
+[
+  {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin",
+      "first_name": "{{project_name}}",
+      "last_name": "Administrator",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2013-09-07T23:51:42.899Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$10000$iTwpw9KY8RTS$uTHxwayfQtKa2vdBs0YS5gN7F8QD7eWR317RMYQGQeU=",
+      "email": "e@{{project_name}}",
+      "date_joined": "2013-09-04T07:33:41.395Z"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "sites.site",
+    "fields": {
+      "domain": "{{project_name}}.local",
+      "name": "{{project_name}}"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "googletools.siteverificationcode",
+    "fields": {
+      "code": "test",
+      "site": 1
+    }
+  },
+  {
+    "pk": 1,
+    "model": "googletools.analyticscode",
+    "fields": {
+      "code": "test",
+      "site": 1
+    }
+  }
+]

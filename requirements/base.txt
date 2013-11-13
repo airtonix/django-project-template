@@ -1,0 +1,57 @@
+Django==1.5.4
+
+django-classy-tags==0.4
+
+
+# Users
+git+https://github.com/airtonix/django-user-accounts.git
+
+# Admin
+django-admin-shortcuts==1.2.5
+django-admin-sortable==1.4.1
+git+https://github.com/divio/djangocms-admin-style.git
+
+# Database
+South==0.8.1
+django-postgrespool==0.2.4
+
+# Models
+django-annoying==0.7.7
+django-extensions==1.1.1
+django-model-utils==1.2.0
+django-mptt==0.5.5
+git+git://github.com/lauxley/django_mptt_menu.git#egg=django-mptt-menu
+git+git://github.com/cypreess/django-ordered-model.git#egg=django-ordered-model
+django-menus==1.1.2
+django-flatblocks==0.8
+django-taggit==0.10
+
+# Routing
+surlex==0.1.2
+
+# Assets
+Pillow==1.7.8
+sorl-thumbnail==11.12
+manifesto==0.4.1
+django-compressor==1.3
+django-favicon==0.1.1
+django-google-tools==1.0.0
+django-url-robots==1.1
+cssmin==0.2.0
+
+# Themes
+django-themes==0.0.5
+
+# Security
+django-lockout==0.1.1
+
+# Emails
+django-post-office==0.5.2
+
+# Feature Flip
+gargoyle==0.10.8
+git+https://github.com/airtonix/nexus.git@develop
+
+
+# Private Beta
+django-waitinglist==1.0b10

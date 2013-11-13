@@ -1,0 +1,92 @@
+Airtonix Django Project Template
+================================
+
+## Technologies
+
+Zurb Foundation, AngularJS, Compressor, Celery, Redis, Post Office, Ansible, Vagrant.
+
+
+### Deployment
+
+* Ansible playbook:
+  one time install from : https://github.com/ans
+
+### Assets
+
+* zurb-foundation 4
+* compass
+* sass
+* django-compressor
+* cssmin
+* manifesto
+* django-favicon
+* django-url-robots
+* django-google-tools
+* Pillow
+* sorl-thumbnail
+
+### Security
+
+* django-lockout
+* django-user-accounts
+
+### Emails
+
+* django-post-office
+
+### Feature Flip
+
+* django-waffle
+
+### Models and Database
+
+* South
+* django-postgrespool
+* django-annoying
+* django-extensions
+* django-model-utils
+* django-mptt
+* django-mptt-menu
+* django-ordered-model
+
+### Admin
+
+* django-admin-shortcuts
+* django-admin-sortable
+* djangocms-admin-style
+* custom-admin-style
+
+### Message Queue
+
+* django-celery-clearcache
+* django-celery-email-with-retry
+* django-celery-with-redis
+* django-celery
+
+### Cache
+
+* django-redis-cache
+* hiredis
+* johnny-cache
+* python-memcached
+
+
+### Local Dev
+
+* compass watch runserver
+* debug-toolbar
+
+
+
+# Getting started
+
+```
+$ mkvirtualenv example.com
+(example.com)$ pip install django==1.5.4
+(example.com)$ django-admin.py startproject --tempalte=https://github.com/airtonix/django-project-template.git example.com
+(example.com)$ cd example.com
+(example.com)$ pip install -r ./requirements/base.txt
+(example.com)$ cd application
+(example.com)$ ./manage.py syncdb --noinput
+(example.com)$ ./manage.py migrate
+```

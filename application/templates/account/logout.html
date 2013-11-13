@@ -1,0 +1,16 @@
+{% extends "account/base.html" %}
+{% load url from future %}
+{% load i18n %}
+
+{% block html-title %}{{ block.super }} {% trans "Log out" %}{% endblock %}
+{% block page-title %}{% trans "Log out" %}{% endblock %}
+
+{% block page-content %}
+<div class="large-6 columns large-centered centered">
+<form method="POST" action="{% url "account_logout" %}" class="form-horizontal">
+    {% csrf_token %}
+    <p>{% trans "Are you sure you want to log out?" %}</p>
+    <button type="submit" class="button">{% trans "Yep" %}</button>
+</form>
+</div>
+{% endblock %}

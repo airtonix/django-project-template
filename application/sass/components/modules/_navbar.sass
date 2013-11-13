@@ -1,0 +1,216 @@
+.nav-bar
+  height: $navBarHeight
+  background: lighten($black, 30%)
+  margin-left: 0
+  margin-top: $navBarHeight / 2
+  padding: 0
+
+  & > li
+    float: $defaultFloat
+    display: block
+    position: relative
+    padding: 0
+    margin: 0
+    border: 1px solid lighten($black, 20%)
+    border-#{$defaultOpposite}: none
+    line-height: $navBarHeight - 2
+    // +box-shadow(1px 0 0 fade-out($shinyEdge, 0.3) inset)
+    +box-shadow(none  )
+    &:first-child
+      // +box-shadow(0 0 0)
+      +box-shadow(none)
+    &:last-child
+      border-#{$defaultOpposite}: solid 1px lighten($black, 20%)
+      // +box-shadow(1px 0 0 fade-out($shinyEdge, 0.3) inset, 1px 0 0 fade-out($shinyEdge, 0.3))
+      +box-shadow(none)
+    &.active
+      background: $mainColor
+      border-color: darken($mainColor, 10%)
+      & > a
+        color: $white
+        cursor: default
+      &:hover
+        background: $mainColor
+        cursor: default
+    &:hover
+      background: lighten($black, 20%)
+    & > a
+      color: darken($white, 10%)
+    *:not(.flyout) ul
+      margin-bottom: 0
+    .flyout
+      display: none
+
+    &.has-flyout
+      & > a:first-child
+        padding-#{$defaultOpposite}: $navBarHeight
+        position: relative
+        &:after
+          +cssTriangle(4px, darken($white, 10%), top)
+          position: absolute
+          #{$defaultOpposite}: $navBarHeight / 2
+          top: $navBarHeight / 2 - 3
+      & > a.flyout-toggle
+        border-#{$defaultFloat}: 0 !important
+        position: absolute
+        #{$defaultOpposite}: 0
+        top: 0
+        padding: $navBarHeight / 2
+        z-index: 2
+        display: block
+      &.is-touch
+        & > a:first-child
+          padding-#{$defaultOpposite}: 55px
+        & > a.flyout-toggle
+          border-#{$defaultFloat}: 1px dashed #666666
+
+  & > li > a:first-child
+    position: relative
+    padding: 0 $navBarHeight / 2
+    display: block
+    text-decoration: none
+    font-size: ms(0)
+  & > li > input
+    margin: 0 10px
+
+  &.vertical
+    height: auto
+    margin-top: 0
+    & > li
+      float: none
+      border-bottom: none
+      border-#{$defaultOpposite}: solid 1px lighten($black, 20%)
+      +box-shadow(none)
+      &.has-flyout > a:first-child:after
+        +cssTriangle(4px, darken($white, 10%), $defaultFloat)
+      .flyout
+        #{$defaultFloat}: 100%
+        top: -1px
+        &.right
+          #{$defaultFloat}: auto
+          #{$defaultOpposite}: 100%
+      &.active
+        border-#{$defaultOpposite}: solid 1px darken($mainColor, 10%)
+      &:last-child
+        border-bottom: solid 1px lighten($black, 20%)
+
+.flyout
+  background: darken($white, 5%)
+  padding: $navBarHeight / 2
+  margin: 0
+  border: 1px solid darken($white, 15%)
+  position: absolute
+  top: $navBarHeight - 1
+  #{$defaultFloat}: -1px
+  width: $navFlyoutBaseWidth
+  z-index: 40
+  +box-shadow(0 1px 5px rgba(black, 0.1))
+  p
+    line-height: 1.2
+    font-size: ms(0) - 1
+  *:first-child
+    margin-top: 0
+  *:last-child
+    margin-bottom: 0
+  &.small
+    width: $navFlyoutBaseWidth / 1.5
+  &.large
+    width: $navFlyoutBaseWidth * 1.75
+  &.right
+    left: auto
+    right: -2px
+  &.left
+    right: auto
+    left: -2px
+  &.up
+    top: auto
+    bottom: $navBarHeight - 1
+
+
+.nav-bar > li > ul
+  padding: 0
+  list-style: none
+  & > li
+    border-#{$defaultFloat}: solid 3px #cccccc
+    & > a
+      background: darken($white, 5%)
+      border: 1px solid darken($white, 10%)
+      border-width: 1px 1px 0 0
+      display: block
+      font-size: ms(0)
+      height: auto
+      color: #555
+      line-height: 1
+      padding: $navBarHeight / 2 - 5 $navBarHeight / 2
+      +box-shadow(0 1px 0 $shinyEdge inset)
+    &:hover, &:focus
+      background: darken($white, 8%)
+      color: #333
+    &.active
+      margin-top: 0
+      border-top: 1px solid lighten($black, 30%)
+      border-#{$defaultFloat}: 4px solid lighten($black, 10%)
+      & > a
+        background: lighten($black, 30%)
+        border: none
+        color: #fff
+        height: auto
+        margin: 0
+        position: static
+        top: 0
+        +box-shadow(0 0 0)
+
+
+=coloured-navbar($bg: #eee, $fg: #333, $border: #ccc)
+  $hoverBg: $bg
+  @if $bg == none
+    $hoverBg: #ccc
+  @else
+    $hoverBg: shade($bg, 30%)
+
+  background: none
+  border: none
+  +box-shadow(0 0px 0 1px $border)
+
+  li
+    background: none
+    border: none
+
+    &:hover
+      background: none
+
+    a
+      border: none
+      border-bottom: 1px solid $border
+      color: $fg
+      background: $bg
+
+      &:hover
+        background: $hoverBg
+
+    &:last-child
+      border: none
+      a
+        border-bottom: none
+
+
+.nav-bar
+  &.transparent
+    +coloured-navbar(none, #333)
+
+  &.light
+    +coloured-navbar(none, #333, #ccc)
+
+
+ul.rounded
+  $borderRadius: 3px
+  +border-radius($borderRadius)
+  li
+    &:first-child
+      a
+        +border-corner-radius(top, left, $borderRadius)
+        +border-corner-radius(top, right, $borderRadius)
+    &:last-child
+      a
+        +border-corner-radius(bottom, left, $borderRadius)
+        +border-corner-radius(bottom, right, $borderRadius)

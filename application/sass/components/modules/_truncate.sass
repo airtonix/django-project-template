@@ -1,0 +1,10 @@
+.truncate
+	+ellipsis
+	@for $i from 1 through $totalColumns
+		&.truncate-#{convert-number-to-word($i)}
+			max-width: $i * 72px
+			+respondTo(smallScreen)
+				max-width: 100%
+
+.expanded ul > li > a.truncate
+	max-width: 100%

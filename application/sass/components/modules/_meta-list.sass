@@ -1,0 +1,107 @@
+.meta-list, .meta-list.nav-bar
+	list-style-type: square
+	display: inline-block
+	width: 100%
+	height: 100%
+	min-height: 5em
+	background: none
+
+	li
+		display: inline-block
+		margin: 0
+		padding: 1rem
+		line-height: 2rem
+		cursor: pointer
+
+
+		label
+			color: #999
+			font-family: $subheaderFontFamily
+			font-weight: $subheaderFontWeight
+			font-style: $subheaderFontStyle
+			font-size: 1.2em
+
+			& ~ a
+				color: inherit
+				position: relative
+				border: none
+				cursor: pointer
+				margin-right: 0.5em
+				&:after
+					content: ", "
+					display: inline
+				&:last-child:after
+					content: ""
+				&:hover
+					color: #fff
+					text-decoration: underline
+
+
+	li, li:last-child
+		border: none
+		+box-shadow(none)
+
+	&.two-up li
+		width: 50%
+	&.three-up li
+		width: 33%
+	&.four-up li
+		width: 25%
+	&.five-up li
+		width: 20%
+
+
+	+respondTo(mediumScreen)
+		li
+			display: block
+			width: 100%
+
+		&.two-up li,
+		&.three-up li,
+		&.four-up li,
+		&.five-up li
+			display: block
+
+	+respondTo(smallScreen)
+		li
+			label
+				width: 100%
+				margin: 0
+				display: inline-block
+				text-align: left
+				padding-right: 1rem
+
+		&.two-up li,
+		&.three-up li,
+		&.four-up li,
+		&.five-up li
+			width: 100%
+			display: block
+
+dl.meta-list
+	dt, dd
+		display: inline-block
+		float: left
+		width: auto
+	dt
+		clear: both
+		text-align: right
+		font-weight: bold
+
+		label
+			display: inline-block
+			$labelWidth: 1em
+
+			@for $i from 1 through $totalColumns
+				&.#{convert-number-to-word($i)}
+					width: $labelWidth*$i
+
+		&:after
+			content: " "
+			display: inline-block
+			height: 1em
+			width: 1em
+
+	dt.icon
+		width: 1em
+

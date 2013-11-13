@@ -1,0 +1,20 @@
+{% extends "flatpages/default.html" %}
+{% load static future %}
+{% load render_template %}
+
+{% block page-title %}{% endblock %}
+{% block body-class %}{{block.super}} splash-page {{ PageSlug }}{% endblock %}
+
+{% block site-nav %}{% endblock %}
+
+{% block content %}
+    <article class="row">
+    {% if Page %}
+        {% render_as_template Page.content %}
+    {% else %}
+        {% block page-content %}{% endblock %}
+    {% endif %}
+    </article>
+{% endblock %}
+
+{% block site-footer %}{% endblock %}

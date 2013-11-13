@@ -1,0 +1,166 @@
+
+form
+    select, button, label,
+    input[type="text"], input[type="password"], input[type="date"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="month"], input[type="week"], input[type="email"],
+    input[type="number"], input[type="search"], input[type="tel"],
+    input[type="time"], input[type="url"],
+    .row.collapse .columns .postfix,
+    .row.collapse .columns .prefix
+        padding: 0.7em 1.5em
+        line-height: 1.4em
+        height: auto
+        font-size: 100%
+
+    select, button, label,
+    input[type="text"], input[type="password"], input[type="date"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="month"], input[type="week"], input[type="email"],
+    input[type="number"], input[type="search"], input[type="tel"],
+    input[type="time"], input[type="url"], textarea
+        line-height: 1.4em
+        padding: 0.7em 1.5em
+        -webkit-appearance: none
+        background-repeat: no-repeat
+        background-position: right center
+        font: inherit
+        outline: none
+        height: auto
+        +border-radius(2px)
+        +box-shadow(none)
+
+        &:focus
+            +box-shadow(0px 0px 1px rgba(#000, 0.3) inset)
+
+        &.outlined
+            border: 1px solid #DCDCDC
+
+        &.simple
+            +box-shadow(none)
+            color: #444
+            background: none
+
+    input.unverified
+        border-color: $alert-color
+        +icon-FontAwesome
+        &:before
+            +icon($warning-sign)
+
+    input.verified
+        +icon-FontAwesome
+        &:before
+            +icon($ok)
+
+    input[type="checkbox"]
+        &:before
+            content: attr(placeholder)
+            display: inline-block
+            float: left
+            width: 10em
+            padding: 0 1em
+            line-height: 1
+
+    select
+        min-width: 37px
+        text-align: center
+        // background: #F5F5F5
+        // +background-image(linear-gradient(top, #F5F5F5, #F1F1F1))
+        border: 1px solid #DCDCDC
+        color: #444
+        background: none
+        +icon-FontAwesome
+        &:before
+            +icon($angle-down)
+
+    label
+        +border-radius(2px)
+
+
+body
+    form
+
+        .row.divided
+            padding: 1em 0
+            margin-bottom: 1em
+
+            &:not(:last-child):after
+                content: ""
+                display: block
+                width: 100%
+                height: 2em
+                border-bottom: 1px solid #eee
+            &.radioselect
+                ul
+                    list-style: none
+
+            .columns
+                text-align: left
+                line-height: 1.4em
+
+                &.aligned-right
+                    text-align: right
+
+        label
+            padding-top: 0
+            padding-bottom: 0
+            .help-text
+                display: block
+                font-size: 80%
+                color: #777
+
+        ul.inline
+            display: inline-block
+
+            li button[type="submit"]
+                line-height: 1rem
+
+        input[type='search']
+            -webkit-appearance: initial
+            &.light
+                border: none
+                background: #fff
+
+        .switch
+            background: none
+            border-width: 2px
+            max-width: 5em
+            input:first-of-type:checked ~ span
+                margin-left: -2em
+
+            span
+                border-width: 2px
+                background: none
+                height: 2em
+                width: 2em
+                top: 0.5px
+
+        .radioselect
+            .field-input
+                label
+                    overflow: hidden
+                    &:before
+                        +icon($circle-blank)
+                        font-size: 150%
+                    input[type=radio]
+                        position: absolute
+                        right: -100%
+
+
+        .error label,
+        label.error
+            +form-label-error-color
+            small
+                font-size: 80%
+                font-weight: normal
+                background: none
+                margin: 0
+                color: tint($alert-color, 40%)
+
+        .error small,
+        small.error,
+        .errorlist
+            display: block
+            line-height: 1.5
+            +form-error-message(tint($alert-color, 40%))
+

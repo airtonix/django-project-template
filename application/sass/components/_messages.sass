@@ -1,0 +1,26 @@
+body
+    #site-wrapper
+        ul.messages
+            position: fixed
+            left: 50%
+            width: 40em
+            margin-left: -20em
+            list-style: none
+            z-index: 200
+
+            li
+                padding: 1em
+                +border-radius(0.2em)
+                +icon($remove)
+                &.success
+                    background: pastelise($success-color)
+                    color: $success-color
+                &.info
+                    background: pastelise($main-color)
+                    color: shade($main-color, 30%)
+                &.warning
+                    background: pastelise($alert-color)
+                    color: shade($alert-color, 30%)
+                &.danger
+                    background: pastelise($alert-color)
+                    color: shade($alert-color, 30%)

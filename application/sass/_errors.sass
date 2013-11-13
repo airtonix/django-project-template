@@ -1,0 +1,9 @@
+@import mixins
+
+body.error-page
+
+	&.error-500
+		+centered-title-page($color: red)
+
+	&.error-404
+		+centered-title-page($color: orange)

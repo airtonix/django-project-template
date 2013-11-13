@@ -1,0 +1,21 @@
+{% extends "flatpages/splash.html" %}
+{% load i18n %}
+{% load static %}
+{% load future %}
+{% load form_tags %}
+
+{% block body-id %}home{% endblock %}
+
+{% block content %}
+<article class="splash">
+    <section id="splash" class="hero center-vertical">
+        <div class="cell">
+        <h1> Homepage <small>Where you start.</small></h1>
+        </div>
+    </section>
+</article>
+{% endblock %}
+
+{% block site-footer %}
+{% include "partials/site-footer.html" %}
+{% endblock %}

@@ -1,0 +1,27 @@
+.link-list.hanging-tabs
+	li
+		display: inline-block
+		float: left
+		padding: 0 0.2em
+		a
+			background: #666
+			color: #333
+			display: block
+			width: 3em
+			padding: 2em 0 2em
+			text-align: center
+			margin-top: -2em
+
+			&:after
+				content: ""
+				display: block
+				border-width: 0 1.5em 1em 1.5em
+				border-style: solid
+				border-color: transparent transparent #312f32 transparent
+				position: absolute
+				bottom: 0
+				width: 3em
+				height: 2em
+			&:hover
+				background: #fff
+				color: #222

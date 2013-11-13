@@ -1,0 +1,258 @@
+
+html.modal-ready
+    .modal
+        &.login-modal
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: #333
+            +box-shadow(none)
+            display: table
+            margin: 0
+
+            > .ng-scope
+                display: table-cell
+                vertical-align: middle
+                padding: 0 25%
+
+                .close-moal
+                    position: absolute
+                    top: 1em
+                    right: 1em
+
+        form.ng-invalid
+            input[type="submit"]
+                [class^="icon-"],
+                [class*=" icon-"]
+                    color: desaturate(orange, 45%)
+
+
+body
+    margin: 0
+    padding: 0
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+
+    h2, h3, h4, h5
+        font-family: $header-font-family
+        font-weight: 300
+
+        &.subheader
+            font-family: $subheader-font-family
+            font-weight: $subheader-font-weight
+            font-style: $subheader-font-style
+            color: $subheader-font-color
+            margin: 0
+
+
+        small
+            font-size: 75%
+            &.block
+                line-height: 1
+                width: 100%
+                clear: both
+                display: block
+
+    p
+        a:not(.button)
+            border-bottom: 1px dotted #999
+            +links
+
+    &.page-title-centered #page-title
+        text-align: center
+
+    #return-to-top
+        +transition(opacity, 0.6s)
+        position: fixed
+        opacity: 0
+        bottom: 1em
+
+        &.left
+            margin-left: 5em
+
+        &.right
+            margin-right: -5em
+
+
+        &.active
+            opacity: 1
+
+
+    #site-nav
+        margin: 0
+        z-index: 20
+        background: #312F32
+        width: 100%
+        +border-radius(0)
+
+        section > ul
+            +border-radius(0.2em)
+            background: none
+            & > li
+                background: none
+                & > a:not(.button)
+                    background: none
+                    +border-corner-radius(bottom, right, 0.2em)
+                    +border-corner-radius(top, right, 0.2em)
+
+
+        // #site-wide-contact-form
+        //     .dropdown
+        //         width: 30em
+        //         background: #222
+
+        //         form
+        //             height: auto
+        //             .button
+        //                 height: auto
+
+        #site-brand h1
+            display: inline-block
+            line-height: 3rem
+            float: left
+
+    #messages
+        width: 100%
+        margin: 0 auto
+
+        > .alert-box
+            position: absolute
+            top: -100%
+            opacity: 0
+            left: 50%
+            width: $page-width/2
+            margin-left: -$page-width/4
+            +transition(opacity, 1s)
+
+            .errorlist
+                margin: 0 2em 0 1em
+
+            .close:after
+                +icon($remove)
+            &.active
+                opacity: 1
+                top: 55px
+
+    #content-wrapper
+        article
+            width: 100%
+            padding-bottom: 1em
+            border-left: 1px solid $border-color
+            border-right: 1px solid $border-color
+
+            &:last-child
+                +border-corner-radius(bottom, left, 0)
+                +border-corner-radius(bottom, right, 0)
+
+            &:not(.splash)
+                border-bottom: 1px solid $border-color
+
+
+            #page-title
+                padding: 0.5em
+                margin-bottom: 1em
+                border-bottom: 1px solid $border-color
+
+                .title
+                    padding: 0 0 0.2em 0
+                    font-weight: normal
+                    font-family: "Open Sans Condensed"
+                    text-shadow: none
+                    color: rgba(#000, 0.75)
+                    margin-bottom: 0
+
+                .subheader
+                    color: lighten($main-color, 40%)
+                    padding: 0 0.2em
+                    font-family: "Open Sans"
+                    text-shadow: none
+                    font-size: 1.2em
+                    color: rgba(#000, 0.35)
+
+
+    form
+
+        &.errors
+            input, textarea, select, .errorlist
+                color: tint($alert-color, 0.8)
+                border-color: $alert-color
+
+        .errorlist
+            list-style: none
+            padding: 1em 2em
+            font-size: 0.8em
+            box-sizing: border-box
+
+
+    #site-wrapper
+        padding: 0
+        border: none
+        background: #fff
+        position: static
+
+
+    #site-footer
+        width: 100%
+        min-height: 10em
+        border: none
+        display: block
+        margin: 0 auto
+        overflow: hidden
+        // background: shade($main-color, 45%)
+        color: #fff
+        border: 1px solid #bbb
+        +border-radius(0)
+
+        #google-plus-follow > div
+            font-size: inherit !important
+            margin: 1em !important
+
+        ul
+            display: inline-block
+            float: left
+            margin: 0 1em
+            li
+                list-style: none
+                a
+                    color: #069
+                    font-size: 0.8em
+                    text-transform: uppercase
+                    display: inline-block
+                    float: none
+
+                &.title
+                    color: #999
+                    padding-top: 1em
+                    font-weight: bold
+                    font-size: 0.6em
+                    text-transform: uppercase
+
+
+    +respondTo(mediumScreen)
+        #site-nav,
+        #content-wrapper article,
+        #site-footer
+            width: $page-width
+
+        #content-wrapper article
+            &:last-child
+                +border-corner-radius(bottom, left, 0.2em)
+                +border-corner-radius(bottom, right, 0.2em)
+
+        #site-footer
+            margin: 0.4em auto
+        #site-nav
+            margin: 0 auto
+
+        #site-footer
+            +border-radius(0.2em 0.2em 0 0)
+        // #site-footer
+        //     margin-top: 1em
+        //     section
+        //         +border-radius(0.2em)
+        //     .side-nav
+        //         width: 25%

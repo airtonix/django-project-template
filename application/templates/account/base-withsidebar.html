@@ -1,0 +1,10 @@
+{% extends "flatpages/with-sidebar.html" %}
+
+{% block breadcrumbs %}{{ block.super }}<li class="unavailable"><a>account</a></li>{% endblock %}
+
+{% block page-sidebar %}
+    <ul class="button-group vertical simple-outline transparent">
+        <li><a class="button" href="{% url 'account_password' %}">Password <span class="icon-key right"></span></a></li>
+        <li><a class="button" href="{% url 'account_settings' %}">Settings <span class="icon-cog right"></span></a></li>
+    </ul>
+{% endblock %}

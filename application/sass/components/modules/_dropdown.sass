@@ -1,0 +1,62 @@
+
+nav ul
+    list-style: none
+
+ul
+    li.has-dropdown
+        .f-dropdown
+            width: initial
+            padding: 0
+            +border-radius(0.2em)
+            li
+                width: 100%
+                min-width: 20em
+                a
+                    display: block
+                    text-align: left
+                    padding: 1em 1em
+                    line-height: 1
+
+.top-bar:not(.expanded) .nav-bar.right li.has-dropdown
+    position: relative
+
+.top-bar .nav-bar.right li.has-dropdown
+
+    .dropdown
+        padding-top: 1em
+        li
+            width: 100%
+
+        form
+            height: 100%
+            textarea
+                height: 100%
+
+        &.large
+            width: 920px
+
+
+    &.expanded
+        .top-bar-section
+            .right
+                li.has-dropdown
+                    .dropdown
+                        padding-top: 0
+
+
++respondTo(mediumScreen)
+    .top-bar .nav-bar.right li.has-dropdown.large
+        position: static
+        .dropdown
+            position: absolute
+            left: 0
+            right: 0
+            height: auto
+            width: 100%
+
++respondTo(smallScreen)
+    .top-bar .nav-bar.right li.has-dropdown.large
+        position: static
+        .dropdown.large
+            width: 100%
+
