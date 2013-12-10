@@ -9,7 +9,7 @@ Zurb Foundation, AngularJS, Compressor, Celery, Redis, Post Office, Ansible, Vag
 ### Deployment
 
 * Ansible playbook:
-  one time install from : https://github.com/ans
+  one time install from : https://github.com/airtonix/ansible-django/
 
 ### Assets
 
